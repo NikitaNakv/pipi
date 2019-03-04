@@ -11,6 +11,10 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <div id="header">
+    <p>Наквасин Н. и Травин Д. </p>
+    <p>группа 3211</p>
+    <p>Вариант 321165</p>
+  </div>
   </body>
 </html>
