@@ -1,5 +1,6 @@
 import React from "react";
 import reactDOM from "react-dom";
+import belle from "belle";
 
 class App extends React.Component {
 
