@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pipi4">
+    <output-path>$PROJECT_DIR$/out/artifacts/pipi4</output-path>
+    <root id="archive" name="pipi4.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pipi" />
+          <element id="jpa-descriptors" facet="pipi/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="JPA 2.1-JPA 2.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="pipi/ejb/EJB" />
+      <element id="javaee-facet-resources" facet="pipi/javaeeApplication/javaEEApplication" />
+      <element id="javaee-facet-resources" facet="pipi/web/Web" />
+    </root>
+  </artifact>
+</component>
