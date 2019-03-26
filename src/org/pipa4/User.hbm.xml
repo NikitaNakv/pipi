@@ -1,0 +1,10 @@
+<hibernate-mapping>
+    <class name="org.pipa4.User" table="users">
+
+
+        <id column="name" name="name" type="java.lang.String"/>
+
+        <property column="password" name="password" type="java.lang.String"/>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<hibernate-mapping>
+    <class name="org.pipa4.Result" table="points">
+
+
+        <id column="id" name="id" type="java.lang.Integer">
+            <generator class="sequence"/>
+        </id>
+
+        <property column="x" name="x" type="java.lang.Double"/>
+        <property column="y" name="y" type="java.lang.Double"/>
+        <property column="r" name="r" type="java.lang.Double"/>
+        <property column="result" name="result" type="java.lang.Boolean"/>
+
+    </class>
+</hibernate-mapping>
