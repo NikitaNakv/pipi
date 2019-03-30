@@ -12,7 +12,7 @@
         </web>
     </module>
 
-    <!--<module>
+    <module>
         <ejb>ejb.jar</ejb>
-    </module>-->
+    </module>
 </application>
