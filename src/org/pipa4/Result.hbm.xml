@@ -1,5 +1,5 @@
 <hibernate-mapping>
-    <class name="org.pipa4.Result" table="points">
+    <class name="org.pipa4.models.Result" table="points">
 
 
         <id column="id" name="id" type="java.lang.Integer">

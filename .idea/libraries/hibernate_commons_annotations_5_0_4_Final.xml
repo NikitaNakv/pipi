@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="hibernate-commons-annotations-5.0.4.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/hibernate-commons-annotations-5.0.4.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.ws.rs-api-2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

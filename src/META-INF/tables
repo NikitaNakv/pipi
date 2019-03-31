@@ -1,6 +1,6 @@
 create table users (
 name varchar(100),
-password int NOT NULL,
+password varchar(255) NOT NULL,
 primary key (name)
 );
 

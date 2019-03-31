@@ -1,5 +1,5 @@
 <hibernate-mapping>
-    <class name="org.pipa4.User" table="users">
+    <class name="org.pipa4.models.User" table="users">
 
 
         <id column="name" name="name" type="java.lang.String"/>

@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-ejb" name="pipi:EJB exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/pipi_EJB_exploded</output-path>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="pipi/ejb/EJB" />
-      <element id="javaee-facet-classes" facet="pipi/ejb/EJB" />
-    </root>
-  </artifact>
-</component>
