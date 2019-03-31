@@ -1,15 +1,17 @@
 create table users (
 name varchar(100),
 password varchar(255) NOT NULL,
+auth_key varchar(255),
 primary key (name)
 );
 
 create table points (
-id integer DEFAULT nextval('JPA_SEQUENCE'),
-x real NOT NULL,
-y real NOT NULL,
-r real NOT NULL,
-result boolean,
-name varchar(100) REFERENCES users(name),
-primary key (id)
-);
+  id integer DEFAULT nextval('JPA_SEQUENCE'),
+  x real NOT NULL,
+  y real NOT NULL,
+  r real NOT NULL,
+  result boolean,
+  fok varchar(100) REFERENCES users(name),
+  auth varchar(100),
+  primary key (id)
+  );

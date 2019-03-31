@@ -10,7 +10,6 @@
     <!--<property name="hibernate.connection.url">jdbc:postgresql://pg/studs</property>
     <property name="hibernate.connection.username">s242357</property>
     <property name="hibernate.connection.password">wsb505</property>-->
-    <mapping resource="org/pipa4/User.hbm.xml"/>
-    <mapping resource="org/pipa4/Result.hbm.xml"/>
+    <mapping resource="org/pipa4/Models.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

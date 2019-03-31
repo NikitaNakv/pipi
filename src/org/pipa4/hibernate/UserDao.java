@@ -1,18 +1,14 @@
 package org.pipa4.hibernate;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-import org.pipa4.models.Result;
+import org.pipa4.models.User;
 
-import java.util.List;
-
-public class ResultDao {
+public class UserDao {
     private Session session;
     private boolean sessionInUse;
 
-    public ResultDao(){
+    public UserDao(){
         sessionInUse = false;
     }
 
@@ -26,32 +22,37 @@ public class ResultDao {
             session.close();
         }
         session = HibernateSessionFactoryUtil
-                .getSessionResultFactory()
+                .getSessionUserFactory()
                 .openSession();
         sessionInUse = true;
         return session;
     }
 
-    public void setPoint(Result result) {
+    public void saveUser(User user) {
         Session session = getSession();
         Transaction tx1 = session
                 .beginTransaction();
-        session.save(result);
+        session.save(user);
         tx1.commit();
         session.close();
         sessionInUse = false;
     }
 
-    public List<Result> findAllByName(String user) {
+    public void updateUser(User user) {
         Session session = getSession();
-
-        Criteria criteria = session.createCriteria(Result.class);
-
-        List<Result> list = criteria.add(Restrictions.eq("fok", user)).list();
-
+        Transaction tx1 = session
+                .beginTransaction();
+        session.update(user);
+        tx1.commit();
         session.close();
         sessionInUse = false;
+    }
 
-        return list;
+    public User findById(String id) {
+        Session session = getSession();
+        User user = session.get(User.class, id);
+        session.close();
+        sessionInUse = false;
+        return user;
     }
 }

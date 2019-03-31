@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/app</output-path>
     <root id="archive" name="app.war">
       <element id="artifact" artifact-name="ejb" />
-      <element id="artifact" artifact-name="pipi4" />
+      <element id="artifact" artifact-name="pipi:javaEEApplication exploded" />
     </root>
   </artifact>
 </component>

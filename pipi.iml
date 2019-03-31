@@ -65,5 +65,7 @@
     <orderEntry type="library" name="hibernate-commons-annotations-5.0.4.Final" level="project" />
     <orderEntry type="library" name="persistence-api-1.0.2" level="project" />
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="json-20180813" level="project" />
+    <orderEntry type="library" name="javax.json-1.0" level="project" />
   </component>
 </module>

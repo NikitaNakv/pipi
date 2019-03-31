@@ -22,6 +22,12 @@ public class Result {
     @Column (name = "result")
     private boolean result;
 
+    @Column (name = "fok")
+    private String fok;
+
+    @Column (name = "auth")
+    private String auth;
+
     public Result(){
 
     }
@@ -66,4 +72,19 @@ public class Result {
         this.result = result;
     }
 
+    public String getFok() {
+        return fok;
+    }
+
+    public void setFok(String name){
+        this.fok = name;
+    }
+
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth){
+        this.auth = auth;
+    }
 }

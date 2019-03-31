@@ -1,7 +1,5 @@
 <hibernate-mapping>
     <class name="org.pipa4.models.Result" table="points">
-
-
         <id column="id" name="id" type="java.lang.Integer">
             <generator class="sequence"/>
         </id>
@@ -9,7 +7,16 @@
         <property column="x" name="x" type="java.lang.Double"/>
         <property column="y" name="y" type="java.lang.Double"/>
         <property column="r" name="r" type="java.lang.Double"/>
+        <property column="fok" name="fok" type="java.lang.String"/>
+        <property column="auth" name="auth" type="java.lang.String"/>
         <property column="result" name="result" type="java.lang.Boolean"/>
+    </class>
+    <class name="org.pipa4.models.User" table="users">
+        <id column="name" name="name" type="java.lang.String"/>
+
+        <property column="password" name="password" type="java.lang.String"/>
+
+        <property column="auth_key" name="authKey" type="java.lang.String"/>
 
     </class>
 </hibernate-mapping>
