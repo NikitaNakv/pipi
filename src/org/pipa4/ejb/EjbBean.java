@@ -39,6 +39,31 @@ public class EjbBean extends Application {
         return null;
     }
 
+    @GET
+    @Path("/hello")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String hello(User user) {
+
+        return "hello";
+    }
+
+    @GET
+    @Path("/check")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String check(User user) {
+        User newUser = new User();
+        newUser.setName("privet");
+        newUser.setPassword("zdarova");
+        newUser.setAuthKey("kaka");
+
+        try {
+            userDao.saveUser(newUser);
+        } catch (Exception e){
+            return e.getMessage();
+        }
+        return "check";
+    }
+
     @POST
     @Path("/points")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -114,7 +139,12 @@ public class EjbBean extends Application {
         try {
             User foundUser = (userDao.findById(user.getName()));
             if (foundUser != null && foundUser.getPassword().equals(Hasher.md5Custom(user.getPassword()))) {
-                String authCode = new Date().getTime() + "@" + UUID.randomUUID().toString();
+                String authCode = String.valueOf(new Date().getTime());
+                if (foundUser.getAuthKey() != null && foundUser.getAuthKey().contains("@") && new Date().getTime() - Long.parseLong(foundUser.getAuthKey().split("@")[0]) < TimeUnit.MINUTES.toMillis(10)) {
+                    authCode += "@" + foundUser.getAuthKey().split("@")[1];
+                } else {
+                    authCode += "@" + UUID.randomUUID().toString();
+                }
                 user.setAuthKey(authCode);
                 user.setPassword(foundUser.getPassword());
                 userDao.updateUser(user);
@@ -125,6 +155,7 @@ public class EjbBean extends Application {
                 jsonObjectBuilder.add("access", "denied");
             }
         } catch (Exception e){
+            jsonObjectBuilder.add("error", e.getMessage());
             jsonObjectBuilder.add("auth", "failed");
         }
 
@@ -145,7 +176,7 @@ public class EjbBean extends Application {
 
         try {
             User userToCompare = (userDao.findById(user.getName()));
-            if (!userToCompare.getAuthKey().equals(user.getAuthKey())) {
+            if (!userToCompare.getAuthKey().split("@")[1].equals(user.getAuthKey().split("@")[1])) {
                 jsonObjectBuilder.add("access", "denied");
                 jsonObjectBuilder.add("reason", "wrong auth key");
             } else if (new Date().getTime() - Long.parseLong(userToCompare.getAuthKey().split("@")[0]) > TimeUnit.MINUTES.toMillis(10)) {
@@ -212,16 +243,20 @@ public class EjbBean extends Application {
     }
 
     private boolean checkAuth(String name, String auth){
-        User user = new User();
-        user.setName(name);
-        user.setAuthKey(auth);
-        User userToCompare = (new UserDao().findById(user.getName()));
-        if (!userToCompare.getAuthKey().equals(user.getAuthKey())) {
+        try {
+            User user = new User();
+            user.setName(name);
+            user.setAuthKey(auth);
+            User userToCompare = (new UserDao().findById(user.getName()));
+            if (!userToCompare.getAuthKey().split("@")[1].equals(user.getAuthKey().split("@")[1])) {
+                return false;
+            } else if (new Date().getTime() - Long.parseLong(userToCompare.getAuthKey().split("@")[0]) > TimeUnit.MINUTES.toMillis(10)) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
             return false;
-        } else if (new Date().getTime() - Long.parseLong(userToCompare.getAuthKey().split("@")[0]) > TimeUnit.MINUTES.toMillis(10)) {
-            return false;
-        }  else {
-            return true;
         }
     }
 }

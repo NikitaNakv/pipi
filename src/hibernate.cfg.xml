@@ -4,12 +4,15 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <!--<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
     <property name="hibernate.connection.username">detravin</property>
-    <property name="hibernate.connection.password">dot</property>
+    <property name="hibernate.connection.password">dot</property>-->
     <!--<property name="hibernate.connection.url">jdbc:postgresql://pg/studs</property>
     <property name="hibernate.connection.username">s242357</property>
     <property name="hibernate.connection.password">wsb505</property>-->
+    <property name="hibernate.connection.url">jdbc:postgresql://node69115-env-8452931.mircloud.host:5432/postgres</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">postgres</property>
     <mapping resource="org/pipa4/Models.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -5,6 +5,8 @@ auth_key varchar(255),
 primary key (name)
 );
 
+CREATE SEQUENCE JPA_SEQUENCE START WITH 1 INCREMENT BY 1;
+
 create table points (
   id integer DEFAULT nextval('JPA_SEQUENCE'),
   x real NOT NULL,
